@@ -18,7 +18,16 @@ class Span
         void addNumber(int number);
         unsigned int shortestSpan() const;
         unsigned int longestSpan() const;
+        void addNumber(std::vector<int>::iterator begin,std::vector<int> end);
 
+        template <typename InputIterator>
+        void addRange(InputIterator begin, InputIterator end)
+        {
+            if (_v.size() + std::distance(begin, end) > _n)
+                throw FullVectorException();
+            _v.insert(_v.end(), begin, end);
+        }
+        
         class FullVectorException : public std::exception
         {
             public:

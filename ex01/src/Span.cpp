@@ -5,7 +5,6 @@ Span::Span(): _n(0)
 }
 Span::Span(unsigned int n) : _n(n)
 {
-    _v.reserve(n);
 }
 Span::Span(const Span &copy) : _n(copy._n), _v(copy._v)
 {
@@ -39,7 +38,7 @@ unsigned int Span::shortestSpan() const
     int min = tmp[1] - tmp[0];
     for(unsigned int i = 1; i < tmp.size(); i++)
     {
-        if(tmp[i] - tmp [i - i] < min)
+        if(tmp[i] - tmp [i - 1] < min)
             min = tmp[i] - tmp[i - 1];
     }
     return (min);
