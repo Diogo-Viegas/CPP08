@@ -30,10 +30,10 @@ int main()
 
 
 	std::cout << "\033[33m" << "Test vector range\n"<< "\033[0m";
-	Span sp2 = Span(100);
+	Span sp2 = Span(1000000);
 	std::vector<int> v;
 	std::srand(time(NULL));
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 1000000; i++)
 	{
 		
 		int random_int = rand() % 1000000;
