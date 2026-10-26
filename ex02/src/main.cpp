@@ -3,37 +3,35 @@
 #include "MutantStack.hpp"
 
 int main() {
-    std::cout << "=== Teste básico com MutantStack ===" << std::endl;
+    std::cout << "=== Basic Test MutantStack ===" << std::endl;
     MutantStack<int> mstack;
 
     mstack.push(5);
     mstack.push(17);
 
-    std::cout << "Topo atual (top): " << mstack.top() << std::endl;
+    std::cout << "(top): " << mstack.top() << std::endl;
 
-    mstack.pop(); // Remove o 17
+    mstack.pop(); 
 
-    std::cout << "Tamanho após pop (size): " << mstack.size() << std::endl;
+    std::cout << "size after pop: " << mstack.size() << std::endl;
 
-    // mstack.push(3);
-    // mstack.push(5);
-    // mstack.push(737);
-    // mstack.push(0);
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(1000);
 
-    // // O grande teste: Iterar sobre a stack como se fosse um vector ou list!
-    // std::cout << "\nElementos na MutantStack (do inicio ao fim):" << std::endl;
-    // MutantStack<int>::iterator it = mstack.begin();
-    // MutantStack<int>::iterator ite = mstack.end();
+    std::cout << "\n=== Mutant Stack Elements ===" << std::endl;
+    MutantStack<int>::iterator it_begin = mstack.begin();
+    MutantStack<int>::iterator it_end = mstack.end();
 
-    // while (it != ite) {
-    //     std::cout << *it << std::endl;
-    //     ++it;
-    // }
+    while (it_begin != it_end) {
+        std::cout << *it_begin << std::endl;
+        ++it_begin;
+    }
 
-    // std::cout << "\n=== Teste de compatibilidade com std::stack original ===" << std::endl;
-    // // Copiar para um std::stack normal para provar que se comporta exatamente igual
-    // std::stack<int> s(mstack);
-    // std::cout << "Topo da stack copiada: " << s.top() << std::endl;
+    std::cout << "\n=== Test copy std::stack ===" << std::endl;
+    std::stack<int> s(mstack);
+    std::cout << "Top copy stack: " << s.top() << std::endl;
 
     return 0;
 }
