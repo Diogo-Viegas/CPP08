@@ -10,25 +10,25 @@ class NotFoundException : public std::exception
     public:
         virtual const char * what() const throw()
         {
-            return ("Number not found");
+            return ("Element not found");
         }
 };
 template <typename T>
-typename T::iterator easyfind(T &container, int n)
+long easyfind(T &container, int n)
 {
     typename T::iterator iter;
     iter = std::find(container.begin(),container.end(),n);
     if(iter == container.end())
         throw NotFoundException();
-    return (iter);
+    return std::distance(container.begin(),iter);
 }
 template <typename T>
-typename  T::const_iterator easyfind(const T& container, int n)
+long easyfind(const T& container, int n)
 {
     typename T::const_iterator iter;
     iter = std::find(container.begin(),container.end(),n);
     if(iter == container.end())
         throw NotFoundException();
-    return (iter);
+    return std::distance(container.begin(),iter);
 }
 #endif
