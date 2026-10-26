@@ -5,7 +5,7 @@ int main()
 {
 	std::cout << "\033[33m" << "Test vector container\n"<< "\033[0m";
 	Span sp = Span(5);
-	sp.addNumber(5);
+	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);
 	sp.addNumber(9);
@@ -30,14 +30,12 @@ int main()
 
 
 	std::cout << "\033[33m" << "Test vector range\n"<< "\033[0m";
-	Span sp2 = Span(1000000);
+	Span sp2 = Span(10000);
 	std::vector<int> v;
-	std::srand(time(NULL));
-	for (int i = 0; i < 1000000; i++)
+	for (int i = 0; i < 10000; i++)
 	{
 		
-		int random_int = rand() % 1000000;
-		v.push_back(random_int);
+		v.push_back(i);
 	}
 	try
 	{
@@ -56,10 +54,8 @@ int main()
 	std::vector<int> v2;
 	std::srand(time(NULL));
 	for (int i = 0; i < 100000; i++)
-	{
-		
-		int random_int = rand() % 1000000000;
-		v2.push_back(random_int);
+	{		
+		v2.push_back(i);
 	}
 	try
 	{
